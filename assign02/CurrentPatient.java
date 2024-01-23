@@ -25,8 +25,6 @@ public class CurrentPatient extends Patient {
 		super(firstName, lastName, uHealthID);
 		uhid = uHealthID;
 		lastPatientVisit = lastVisit;
-
-		//physician was never set
 		this.physician = physician;
 	}
 	
