@@ -62,6 +62,7 @@ public class Facility {
 		// we will loop through the patientList to find the patient with the corresponding UHealthID
 	    for (CurrentPatient patient : patientList) {
 	        if (patient.getUHealthID() == patientID) {
+		//if (patient.getUHealthID().equals(patientID)){} works but the tests say it needs to be a patient not currentPatient
 	            return patient;
 	        }
 	    }
