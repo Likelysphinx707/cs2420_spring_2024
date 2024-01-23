@@ -66,7 +66,9 @@ public class Patient {
 	public boolean equals(Object other) {
 		if (other instanceof Patient) {
 			if (other != null) {
-				if (other.equals(uHealthID)) {
+				
+				UHealthID otherHUID = ((Patient) other).getUHealthID();
+				if (otherHUID.equals(uHealthID)) {
 					return true;
 				}
 			}
