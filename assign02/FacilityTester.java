@@ -50,6 +50,53 @@ public class FacilityTester {
 		// dates in a loop, instead of typing one at a time.)
 	}
 
+	//new tests----------------------------------------------------------------
+	//feel free to edit/delete whatever
+	
+	@Test
+	public void testVerySmallAddNewPatientDuplicate() {
+		assertFalse(verySmallFacility.addPatient(new CurrentPatient("Jane", "Doe", uHID1, 1010101, date1)));
+	}
+	
+	@Test
+	public void testVerySmallLookupUHIDNonexistant() {	
+		CurrentPatient actual = verySmallFacility.lookupByUHID(new UHealthID("BCBC-9999"));
+		assertNull(actual);
+	}
+	
+	@Test
+	public void testLookupPhysicianWrongNum() {
+		ArrayList<CurrentPatient> patients = smallFacility.lookupByPhysician(9876543);
+		assertEquals(0, patients.size());
+	}
+	
+	@Test
+	public void testGetInactivePatientsDateTooEarly() {
+		GregorianCalendar date = new GregorianCalendar(2000, 0, 1);
+		ArrayList<CurrentPatient> patients = smallFacility.getInactivePatients(date);
+		assertEquals(0, patients.size());
+	}
+	
+	@Test
+	public void testGetInactivePatientsDateTooLate() {
+		GregorianCalendar date = new GregorianCalendar(2100, 0, 1);
+		ArrayList<CurrentPatient> patients = smallFacility.getInactivePatients(date);
+		assertEquals(11, patients.size());
+	}
+	
+	@Test
+	public void testSmallGetPhysicianListEmpty() {
+		ArrayList<Integer> actual = emptyFacility.getPhysicianList();
+		assertEquals(0, actual.size());
+	}
+	
+	@Test
+	public void testSetPhysician() {
+		// ensure no exceptions thrown
+		smallFacility.setPhysician(uHID3, 1110111);
+	}
+
+	
 	// Empty Facility tests --------------------------------------------------------
 
 	@Test
