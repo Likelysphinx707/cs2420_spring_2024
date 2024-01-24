@@ -96,6 +96,12 @@ public class FacilityTester {
 		smallFacility.setPhysician(uHID3, 1110111);
 	}
 
+	@Test
+	public void testSetVisit() {
+		// ensure no exceptions thrown
+		smallFacility.setLastVisit(uHID2, date3);
+	}
+
 	
 	// Empty Facility tests --------------------------------------------------------
 
